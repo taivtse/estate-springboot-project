@@ -19,4 +19,10 @@ public class UserServiceImpl extends AbstractService<UserDto, UserEntity, Intege
         super(userConverter, userRepository);
         this.userRepository = userRepository;
     }
+
+    @Override
+    public UserDto findOneByUsername(String username) {
+        UserEntity userEntity = this.userRepository.findOneByUsernameAndStatus(username, true);
+        return this.converter.entityToDto(userEntity);
+    }
 }

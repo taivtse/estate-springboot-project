@@ -12,9 +12,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/authentication")
 public class AuthenticationApi {
 
     private final AuthenticationManager authenticationManager;
@@ -26,7 +28,7 @@ public class AuthenticationApi {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
-    @PostMapping("/authentication")
+    @PostMapping
     public ResponseEntity<?> register(@RequestBody UserDto userDto) throws AuthenticationException {
 
         final Authentication authentication = authenticationManager.authenticate(

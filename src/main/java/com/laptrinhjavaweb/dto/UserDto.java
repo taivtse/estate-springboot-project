@@ -1,12 +1,16 @@
 package com.laptrinhjavaweb.dto;
 
-public class UserDto extends BaseDto{
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDto extends BaseDto {
     private Integer id;
     private String username;
     private String password;
     private String fullName;
     private Boolean status;
     private Integer roleId;
+    private List<RoleDto> roles = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -54,5 +58,13 @@ public class UserDto extends BaseDto{
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    public List<RoleDto> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleDto> roles) {
+        this.roles = roles;
     }
 }

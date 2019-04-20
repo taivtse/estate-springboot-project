@@ -1,5 +1,8 @@
 package com.laptrinhjavaweb.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RoleDto {
     private Integer id;
     private String code;

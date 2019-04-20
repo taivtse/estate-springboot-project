@@ -34,7 +34,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 //        set authority list of user
         List<GrantedAuthority> authorities = new ArrayList<>();
-        userEntity.getRoles().forEach(roleEntity -> authorities.add(new SimpleGrantedAuthority(roleEntity.getCode())));
+        userEntity.getRoles().forEach(roleEntity ->
+                authorities.add(new SimpleGrantedAuthority("ROLE_" +roleEntity.getCode())));
 
 //        put user info to spring security
         UserDetails userDetail = new CustomUserDetail(userEntity.getUsername(), userEntity.getPassword(), authorities);
